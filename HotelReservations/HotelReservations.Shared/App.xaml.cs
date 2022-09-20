@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HotelReservations.Model;
+using HotelReservations.Model.Providers;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
@@ -14,6 +17,7 @@ namespace HotelReservations
     public sealed partial class App : Application
     {
         private Window _window;
+        private IServiceProvider _serviceProvider;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -21,6 +25,7 @@ namespace HotelReservations
         /// </summary>
         public App()
         {
+            _serviceProvider = ConfigureDependencyInjection();
             InitializeLogging();
 
             this.InitializeComponent();
@@ -28,6 +33,14 @@ namespace HotelReservations
 #if HAS_UNO || NETFX_CORE
             this.Suspending += OnSuspending;
 #endif
+        }
+
+        public IServiceProvider ConfigureDependencyInjection()
+        {
+            ServiceCollection services = new ServiceCollection();
+            services.AddTransient<IReservationProvider, RestReservationProvider>();
+            services.AddTransient<IRoomProvider, RestRoomProvider>();
+            return services.BuildServiceProvider();
         }
 
         /// <summary>

@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "HotelReservations.Windows": {
+      "commandName": "MsixPackage"
+    }
+  }
+}

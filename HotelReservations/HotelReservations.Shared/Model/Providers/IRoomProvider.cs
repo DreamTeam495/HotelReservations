@@ -7,8 +7,9 @@ namespace HotelReservations.Model.Providers
 {
     public interface IRoomProvider
     {
+        public Task<bool> Initialize();
         public Task<Room> QueryRoom(long roomId);
-        public Task<List<Room>> QueryFree(DateTime start = new DateTime(), DateTime end = new DateTime(), int minPeople = -1);
+        public Task<List<Room>> QueryFree(DateTime? start = null, DateTime? end = null, int minPeople = -1);
         public Task<bool> AddRoom(Room roomId);
         public Task<bool> RemoveRoom(long roomId);
         public Task<Room> UpdateRoom(Room room);

@@ -27,7 +27,7 @@ namespace HotelReservations.Model.Providers
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<List<Room>> QueryFree(DateTime start = default, DateTime end = default, int minPeople = -1)
+        public async Task<List<Room>> QueryFree(DateTime? start = null, DateTime? end = null, int minPeople = -1)
         {
             throw new NotImplementedException();
         }
@@ -53,6 +53,11 @@ namespace HotelReservations.Model.Providers
             if (response.IsSuccessStatusCode)
                 room = await response.Content.ReadFromJsonAsync<Room>();
             return room;
+        }
+
+        public async Task<bool> Initialize()
+        {
+            return true;
         }
 
         private const string _tmpAddress = "localhost:";

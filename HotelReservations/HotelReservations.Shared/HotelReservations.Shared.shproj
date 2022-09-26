@@ -18,6 +18,7 @@
     <_Globbed_Compile Remove="Model\IReservationProvider.cs" />
     <_Globbed_Compile Remove="Model\IRoomProvider.cs" />
     <_Globbed_Compile Remove="Model\Providers\IRoomProvider.cs" />
+    <_Globbed_Compile Remove="Model\Providers\LocalRoomProvider.cs" />
     <_Globbed_Compile Remove="Model\Providers\RestRoomProvider.cs" />
     <_Globbed_Compile Remove="Model\RestReservationProvider.cs" />
     <_Globbed_Compile Remove="Providers\IDummyRoomProvider.cs" />

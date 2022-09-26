@@ -1,4 +1,5 @@
-﻿using HotelReservations.Model;
+﻿using HotelReservationAPI.Model;
+using HotelReservations.Model;
 using HotelReservations.Model.Providers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -19,6 +20,9 @@ namespace HotelReservations
         private Window _window;
         private IServiceProvider _serviceProvider;
 
+        private IReservationProvider _reservations;
+        private IRoomProvider _rooms;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -27,6 +31,18 @@ namespace HotelReservations
         {
             _serviceProvider = ConfigureDependencyInjection();
             InitializeLogging();
+
+            _rooms = _serviceProvider.GetService<IRoomProvider>();
+            _reservations = _serviceProvider.GetService<IReservationProvider>();
+
+            _rooms.Initialize();
+            _reservations.Initialize();
+
+            Room room = new()
+            {
+                Id = 2
+            };
+            _rooms.AddRoom(room);
 
             this.InitializeComponent();
 
@@ -38,8 +54,8 @@ namespace HotelReservations
         public IServiceProvider ConfigureDependencyInjection()
         {
             ServiceCollection services = new ServiceCollection();
-            services.AddTransient<IReservationProvider, RestReservationProvider>();
-            services.AddTransient<IRoomProvider, RestRoomProvider>();
+            services.AddTransient<IReservationProvider, LocalReservationProvider>();
+            services.AddTransient<IRoomProvider, LocalRoomProvider>();
             return services.BuildServiceProvider();
         }
 

@@ -22,6 +22,8 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\IRoomProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\LocalReservationProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\LocalRoomProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\RestRoomProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Reservation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Room.cs" />

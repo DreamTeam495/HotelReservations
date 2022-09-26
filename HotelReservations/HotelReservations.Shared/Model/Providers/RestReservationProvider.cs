@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Policy;
+using System.Reflection.Metadata.Ecma335;
 
 namespace HotelReservations.Model
 {
@@ -19,6 +20,11 @@ namespace HotelReservations.Model
             _client = new HttpClient { BaseAddress = new Uri(_tmpAddress) };
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        public async Task<bool> Initialize()
+        {
+            return true;
         }
 
         public async Task<bool> AddReservation(Reservation reservation)
@@ -38,8 +44,8 @@ namespace HotelReservations.Model
 
         public async Task<IEnumerable<Reservation>> QueryReservations(DateTime? start = null, DateTime? end = null, long roomId = -1)
         {
-            start = start ?? new DateTime();
-            end = end ?? DateTime.MaxValue;
+            start ??= DateTime.MinValue;
+            end ??= DateTime.MaxValue;
 
             IEnumerable<Reservation> reservation = null;
             HttpResponseMessage response = await _client.GetAsync($"api/reservations/search{start}/{end}/{roomId}");

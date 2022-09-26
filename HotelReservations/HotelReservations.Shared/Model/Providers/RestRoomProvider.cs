@@ -32,10 +32,18 @@ namespace HotelReservations.Model.Providers
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Room>> QueryRooms()
+        {
+            HttpResponseMessage response = await _client.GetAsync("api/rooms");
+            if (response.IsSuccessStatusCode)
+                return await response.Content.ReadFromJsonAsync<IEnumerable<Room>>();
+            return null;
+        }
+
         public async Task<Room> QueryRoom(long roomId)
         {
             Room room = null;
-            HttpResponseMessage response = await _client.GetAsync($"api/reservations{roomId}");
+            HttpResponseMessage response = await _client.GetAsync($"api/rooms{roomId}");
             if (response.IsSuccessStatusCode)
                 room = await response.Content.ReadFromJsonAsync<Room>();
             return room;
@@ -43,13 +51,13 @@ namespace HotelReservations.Model.Providers
 
         public async Task<bool> RemoveRoom(long roomId)
         {
-            HttpResponseMessage response = await _client.DeleteAsync($"api/reservations{roomId}");
+            HttpResponseMessage response = await _client.DeleteAsync($"api/rooms{roomId}");
             return response.IsSuccessStatusCode;
         }
 
         public async Task<Room> UpdateRoom(Room room)
         {
-            HttpResponseMessage response = await _client.PutAsJsonAsync($"api/reservations/{room.Id}", room);
+            HttpResponseMessage response = await _client.PutAsJsonAsync($"api/rooms{room.Id}", room);
             if (response.IsSuccessStatusCode)
                 room = await response.Content.ReadFromJsonAsync<Room>();
             return room;

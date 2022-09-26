@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -19,6 +20,11 @@ namespace HotelReservations.Model.Providers
         {
             await Load();
             return true;
+        }
+
+        public Task<IEnumerable<Room>> QueryRooms()
+        {
+            return (Task<IEnumerable<Room>>)(from val in _rooms select val.Value);
         }
 
 

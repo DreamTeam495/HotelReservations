@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using System;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 
@@ -35,12 +36,13 @@ namespace HotelReservations
             _rooms = _serviceProvider.GetService<IRoomProvider>();
             _reservations = _serviceProvider.GetService<IReservationProvider>();
 
-            _rooms.Initialize();
-            _reservations.Initialize();
+            Task.Run(() => _rooms.Initialize()).Wait();
+            Task.Run(() => _reservations.Initialize()).Wait();
 
+            Random random = new Random();
             Room room = new()
             {
-                Id = 2
+                Id = random.Next()
             };
             _rooms.AddRoom(room);
 

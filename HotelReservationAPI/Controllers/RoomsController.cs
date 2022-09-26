@@ -23,7 +23,7 @@ namespace HotelReservationAPI.Controllers
 
         // GET: api/Rooms
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Room>>> GetReservationItems()
+        public async Task<ActionResult<IEnumerable<Room>>> GetRoomItems()
         {
             return await _context.ReservationItems.ToListAsync();
         }

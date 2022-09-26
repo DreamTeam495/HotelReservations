@@ -62,7 +62,7 @@ namespace HotelReservations.Model
 
         public async Task<Reservation> UpdateReservation(Reservation reservation)
         {
-            HttpResponseMessage response = await _client.PutAsJsonAsync($"api/reservations/{reservation.Id}", reservation);
+            HttpResponseMessage response = await _client.PutAsJsonAsync($"api/reservations{reservation.Id}", reservation);
             if(response.IsSuccessStatusCode)
                 reservation = await response.Content.ReadFromJsonAsync<Reservation>();
             return reservation;

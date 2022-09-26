@@ -14,12 +14,7 @@ namespace HotelReservations.Model.Providers
     {
         public LocalRoomProvider()
         {
-        }
-        
-        public async Task<bool> Initialize()
-        {
-            await Load();
-            return true;
+            Task.Run(() => Load()).Wait();
         }
 
         public Task<IEnumerable<Room>> QueryRooms()

@@ -14,12 +14,7 @@ namespace HotelReservations.Model.Providers
     {
         public LocalReservationProvider()
         {
-        }
-
-        public async Task<bool> Initialize()
-        {
-            await Load();
-            return true;
+            Task.Run(() => Load()).Wait();
         }
 
         public async Task<bool> AddReservation(Reservation reservation)

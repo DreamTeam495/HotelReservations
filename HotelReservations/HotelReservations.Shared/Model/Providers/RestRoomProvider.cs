@@ -63,11 +63,6 @@ namespace HotelReservations.Model.Providers
             return room;
         }
 
-        public async Task<bool> Initialize()
-        {
-            return true;
-        }
-
         private const string _tmpAddress = "localhost:";
         private const string _responseFormat = "application/json";
         private static HttpClient _client;

@@ -36,16 +36,6 @@ namespace HotelReservations
             _rooms = _serviceProvider.GetService<IRoomProvider>();
             _reservations = _serviceProvider.GetService<IReservationProvider>();
 
-            Task.Run(() => _rooms.Initialize()).Wait();
-            Task.Run(() => _reservations.Initialize()).Wait();
-
-            Random random = new Random();
-            Room room = new()
-            {
-                Id = random.Next()
-            };
-            _rooms.AddRoom(room);
-
             this.InitializeComponent();
 
 #if HAS_UNO || NETFX_CORE

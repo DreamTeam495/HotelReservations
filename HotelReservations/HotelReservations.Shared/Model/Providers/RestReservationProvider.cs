@@ -22,11 +22,6 @@ namespace HotelReservations.Model
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<bool> Initialize()
-        {
-            return true;
-        }
-
         public async Task<bool> AddReservation(Reservation reservation)
         {
             HttpResponseMessage response = await _client.PostAsJsonAsync("api/reservations", reservation);

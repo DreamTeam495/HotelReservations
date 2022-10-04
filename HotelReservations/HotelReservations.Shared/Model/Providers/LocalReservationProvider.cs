@@ -10,6 +10,9 @@ using Windows.Storage;
 
 namespace HotelReservations.Model.Providers
 {
+    /// <summary>
+    /// Provides a locally saved database of reservations.
+    /// </summary>
     internal class LocalReservationProvider : IReservationProvider
     {
         public LocalReservationProvider()
@@ -19,6 +22,7 @@ namespace HotelReservations.Model.Providers
 
         public async Task<bool> AddReservation(Reservation reservation)
         {
+            reservation.Id = reservation.Id < 0 ? GetLatestId() + 1 : reservation.Id;
             _reservations[reservation.Id] = reservation;
             await Save();
             return true;
@@ -76,6 +80,15 @@ namespace HotelReservations.Model.Providers
             }
             else
                 _reservations = new Dictionary<long, Reservation>();
+        }
+
+        private long GetLatestId()
+        {
+            long max = -1;
+            foreach (var reservation in _reservations)
+                if (reservation.Key > max)
+                    max = reservation.Key;
+            return max;
         }
 
         private Dictionary<long, Reservation> _reservations;

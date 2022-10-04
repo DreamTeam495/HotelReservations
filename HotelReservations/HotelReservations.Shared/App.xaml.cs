@@ -19,10 +19,8 @@ namespace HotelReservations
     public sealed partial class App : Application
     {
         private Window _window;
-        private IServiceProvider _serviceProvider;
+        private IServiceProvider Container { get;  }
 
-        private IReservationProvider _reservations;
-        private IRoomProvider _rooms;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -30,11 +28,8 @@ namespace HotelReservations
         /// </summary>
         public App()
         {
-            _serviceProvider = ConfigureDependencyInjection();
+            Container = ConfigureDependencyInjection();
             InitializeLogging();
-
-            _rooms = _serviceProvider.GetService<IRoomProvider>();
-            _reservations = _serviceProvider.GetService<IReservationProvider>();
 
             this.InitializeComponent();
 

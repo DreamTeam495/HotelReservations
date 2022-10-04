@@ -10,6 +10,9 @@ using Windows.Storage;
 
 namespace HotelReservations.Model.Providers
 {
+    /// <summary>
+    /// Provides a locally saved database of rooms.
+    /// </summary>
     internal class LocalRoomProvider : IRoomProvider
     {
         public LocalRoomProvider()
@@ -25,6 +28,7 @@ namespace HotelReservations.Model.Providers
 
         public async Task<bool> AddRoom(Room room)
         {
+            room.Id = room.Id < 0 ? GetLatestId() + 1 : room.Id;
             _rooms[room.Id] = room;
             await Save();
             return true;
@@ -79,6 +83,15 @@ namespace HotelReservations.Model.Providers
             }
             else
                 _rooms = new Dictionary<long, Room>();
+        }
+
+        private long GetLatestId()
+        {
+            long max = -1;
+            foreach (var room in _rooms)
+                if (room.Key > max)
+                    max = room.Key;
+            return max;
         }
 
         private Dictionary<long, Room> _rooms;

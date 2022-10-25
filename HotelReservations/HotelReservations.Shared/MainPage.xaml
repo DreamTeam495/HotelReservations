@@ -8,7 +8,55 @@
     mc:Ignorable="d"    
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
+
+    <!-- Navigation Panel-->
     <Grid>
-      <TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+        <Border Background="#1e2235"
+            BorderBrush="#3A4149"
+                BorderThickness="5"
+                CornerRadius="8,8,0,8" />
+
+        <NavigationView x:Name="navPanel"
+                        IsSettingsVisible="True"
+                        IsBackButtonVisible="Collapsed"
+                        IsBackEnabled="False"
+                        Header="Welcome! "
+                        AlwaysShowHeader="True"
+                        PaneTitle="Dream Hotel"
+                        PaneDisplayMode="Left"
+                        ExpandedModeThresholdWidth="500"
+                        SelectionFollowsFocus="Disabled"
+                        IsTabStop="False">
+
+            <!-- Customer Section -->
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Home">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Home" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItem Content="Book A Room">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Calendar" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItem Content="Reservations">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Edit" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <!-- Staff Section -->
+                <NavigationViewItemHeader Content="Staff"/>
+
+            </NavigationView.MenuItems>
+
+        </NavigationView>
+
+
     </Grid>
+
 </Page>

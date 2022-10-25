@@ -29,4 +29,7 @@
     <_Globbed_Compile Remove="RestReservationProvider.cs" />
     <_Globbed_Compile Remove="Room.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <_Globbed_Content Remove="Assets\NavigationViewIcons\home_512px.png" />
+  </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@ namespace HotelReservationAPI.Model
         public DateTime Date { get; set; }
         public long RoomId { get; set; }
         public int PersonCount { get; set; }
-        public string? ClientName { get; set; }
-        public string? ClientEmail { get; set; }
+        public string ClientName { get; set; }
+        public string ClientEmail { get; set; }
     }
 }

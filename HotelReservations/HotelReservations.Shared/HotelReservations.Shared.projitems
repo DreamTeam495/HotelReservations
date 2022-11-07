@@ -29,12 +29,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Room.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\IReservationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\RestReservationProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ReservationPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)ReservationPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />

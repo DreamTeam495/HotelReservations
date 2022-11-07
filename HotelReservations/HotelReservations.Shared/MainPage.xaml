@@ -1,10 +1,11 @@
-﻿<Page
+<Page
     x:Class="HotelReservations.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HotelReservations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Uno.UI.Toolkit"
     mc:Ignorable="d"    
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -31,19 +32,19 @@
 
             <!-- Customer Section -->
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Home">
+                <NavigationViewItem Content="Home" x:Name="Home">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Home" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
-                <NavigationViewItem Content="Book A Room">
+                <NavigationViewItem Content="Book A Room" x:Name="CreateReservation">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Calendar" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
-                <NavigationViewItem Content="Reservations">
+                <NavigationViewItem Content="Reservations" x:Name="CheckReservation">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Edit" />
                     </NavigationViewItem.Icon>
@@ -53,7 +54,7 @@
                 <NavigationViewItemHeader Content="Staff"/>
 
             </NavigationView.MenuItems>
-
+            <Frame x:Name="ContentFrame"/>
         </NavigationView>
 
 

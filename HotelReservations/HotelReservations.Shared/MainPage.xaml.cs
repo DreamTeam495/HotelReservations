@@ -1,4 +1,4 @@
-﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -25,6 +25,17 @@ namespace HotelReservations
         public MainPage()
         {
             this.InitializeComponent();
+        }
+        
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            var item = args.InvokedItemContainer;
+            switch (item.Name)
+            {
+                case "CreateReservation":
+                    ContentFrame.Navigate(typeof(ReservationPage));
+                    break;
+            }
         }
     }
 }

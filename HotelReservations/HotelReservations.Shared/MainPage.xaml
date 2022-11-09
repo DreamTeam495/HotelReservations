@@ -14,50 +14,57 @@
     <!-- Navigation Panel-->
     <Grid>
         <Border Background="#1e2235"
-            BorderBrush="#3A4149"
+                BorderBrush="#3A4149"
                 BorderThickness="5"
                 CornerRadius="8,8,0,8" />
 
-        <NavigationView x:Name="navPanel"
-                        IsSettingsVisible="True"
+        <NavigationView x:Name="NavView"
+                        ItemInvoked="NavView_ItemInvoked"
+                        Loaded="NavView_Loaded"
+                        SelectionChanged="NavView_SelectionChanged"
+                        BackRequested="NavView_BackRequested" 
+                        IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}"
+                        IsSettingsVisible="false">
+                        <!--IsBackEnabled="False"
                         IsBackButtonVisible="Collapsed"
-                        IsBackEnabled="False"
-                        Header="Welcome! "
+                        IsSettingsVisible="True"
+                        Header="Welcome!"
                         AlwaysShowHeader="True"
                         PaneTitle="Dream Hotel"
                         PaneDisplayMode="Left"
                         ExpandedModeThresholdWidth="500"
                         SelectionFollowsFocus="Disabled"
-                        IsTabStop="False">
+                        IsTabStop="False"-->
 
             <!-- Customer Section -->
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Home" x:Name="Home">
-                    <NavigationViewItem.Icon>
-                        <SymbolIcon Symbol="Home" />
+                <NavigationViewItem Content="Home" Tag="HomeView" Icon="Home" x:Name="Home"/>
+                <NavigationViewItem Content="Book A Room" Tag="BookingView" Icon="Calendar" x:Name="CreateReservation"/>
+                <NavigationViewItem Content="Reservations" Tag="ReservationView" x:Name="CheckReservation" Icon="Edit"/>
+                
+                    <!--<NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Edit" />
                     </NavigationViewItem.Icon>
-                </NavigationViewItem>
-
-                <NavigationViewItem Content="Book A Room" x:Name="CreateReservation">
+                </NavigationViewItem>-->
+                
+                <!--<NavigationViewItem Content="Book A Room" x:Name="CreateReservation">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Calendar" />
                     </NavigationViewItem.Icon>
-                </NavigationViewItem>
-
-                <NavigationViewItem Content="Reservations" x:Name="CheckReservation">
-                    <NavigationViewItem.Icon>
-                        <SymbolIcon Symbol="Edit" />
+                </NavigationViewItem>-->
+                
+                <!--<NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Home" />
                     </NavigationViewItem.Icon>
-                </NavigationViewItem>
+                </NavigationViewItem>-->
 
                 <!-- Staff Section -->
-                <NavigationViewItemHeader Content="Staff"/>
+                <!--<NavigationViewItemHeader Content="Staff"/>-->
 
             </NavigationView.MenuItems>
-            <Frame x:Name="ContentFrame"/>
+            <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed"></Frame>
         </NavigationView>
-
-
+        
     </Grid>
 
 </Page>

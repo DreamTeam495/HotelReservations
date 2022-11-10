@@ -30,6 +30,8 @@
 		<PackageReference Include="Uno.Core.Extensions.Logging.Singleton" Version="4.0.1" />
 
 		<Manifest Include="$(ApplicationManifest)" />
+
+		<PackageReference Include="Uno.Extensions" Version="2.3.0-dev.266" />
 	</ItemGroup>
 
 	<!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging

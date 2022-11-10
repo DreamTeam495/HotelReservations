@@ -29,12 +29,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Room.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\IReservationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\RestReservationProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BookingView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ReservationView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsView.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\BookingView.xaml" />
+    <Page Include="$(MSBuildThisFileDirectory)Views\HomeView.xaml" />
+    <Page Include="$(MSBuildThisFileDirectory)Views\ReservationView.xaml">
+      <XamlRuntime>WinUI</XamlRuntime>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\SettingsView.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />

@@ -9,6 +9,59 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Tag="HomeView">
     
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin ="480,346,0,0" TextWrapping="Wrap" Text="This is the home page!" VerticalAlignment="Top" FontSize="30" />
+        <!-- background gif -->
+        <Image Source="https://i.gifer.com/origin/dd/ddedd3a2f4a3995d8cd1a8ab2033c9ce.gif" Stretch="UniformToFill"/>
+
+
+        <!-- Welcome texted positioned top center of page -->
+        <TextBlock
+            FontWeight="Bold"
+            Foreground="MediumPurple"
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="75"
+            FontFamily="DFKai-SB"
+            HorizontalAlignment="Center">
+            Welcome to Dream Hotel
+        </TextBlock>
+
+        <!-- gif positioned far left -->
+        <Image
+            Source="https://i.gifer.com/nq.gif"
+            alt="Logo"
+            Grid.Row="1"
+            Stretch="Fill"
+            Width="375"
+            Height="250"
+            VerticalAlignment="Stretch"
+            Margin="0, 0, 0, 0"
+            HorizontalAlignment="Left"
+            />
+
+        <!-- image positioned centered -->
+        <Image
+            Source="https://images.adagio.com/images2/custom_blends/167218.jpg"
+            alt="Logo"
+            Grid.Row="2"
+            Grid.Column="3"
+            Stretch="Fill"
+            Width="500"
+            Height="500"
+            VerticalAlignment="Stretch"
+            Margin="0, 0, 0, 0"
+            HorizontalAlignment="Center"
+            />
+
+        <Image
+            Source="https://i0.wp.com/www.additudemag.com/wp-content/uploads/2020/12/GettyImages-1179158216.jpg"
+            alt="Logo"
+            Grid.Row="1"
+            Stretch="Fill"
+            Width="375"
+            Height="250"
+            VerticalAlignment="Stretch"
+            Margin="0, 0, 0, 0"
+            HorizontalAlignment="Right"
+            />
     </Grid>
 </Page>

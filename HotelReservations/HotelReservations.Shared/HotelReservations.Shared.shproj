@@ -11,6 +11,9 @@
   <Import Project="HotelReservations.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.CSharp.targets" />
   <ItemGroup>
+    <UpToDateCheckInput Remove="Views\StaffView.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <_Globbed_Compile Remove="IDummyRoomProvider.cs" />
     <_Globbed_Compile Remove="IReservationProvider.cs" />
     <_Globbed_Compile Remove="IRoomProvider.cs" />
@@ -28,8 +31,13 @@
     <_Globbed_Compile Remove="Reservation.cs" />
     <_Globbed_Compile Remove="RestReservationProvider.cs" />
     <_Globbed_Compile Remove="Room.cs" />
+    <_Globbed_Compile Remove="Views\Report.xaml.cs" />
+    <_Globbed_Compile Remove="Views\StaffView.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <_Globbed_Content Remove="Assets\NavigationViewIcons\home_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <_Globbled_Page Remove="Views\StaffView.xaml" />
   </ItemGroup>
 </Project>

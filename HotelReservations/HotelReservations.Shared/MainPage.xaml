@@ -38,9 +38,12 @@
 
             <!-- Customer Section -->
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Home" Tag="HomeView" Icon="Home" x:Name="Home"/>
-                <NavigationViewItem Content="Book A Room" Tag="BookingView" Icon="Calendar" x:Name="CreateReservation"/>
-                <NavigationViewItem Content="Reservations" Tag="ReservationView" x:Name="CheckReservation" Icon="Edit"/>
+                <NavigationViewItem Content="Home" Foreground="Red" Tag="HomeView" Icon="Home" x:Name="Home"/>
+                <NavigationViewItem Content="Book A Room" Foreground="Red" Tag="BookingView" Icon="Calendar" x:Name="CreateReservation"/>
+                <NavigationViewItem Content="Reservations" Foreground="Red" Tag="ReservationView" x:Name="CheckReservation" Icon="Edit"/>
+                <NavigationViewItem Content="Report" Foreground="Red" Tag="Report" x:Name="Report" Icon="Mail"/>
+                <NavigationViewItem Content="Staff" Foreground="Red" Tag="StaffView" x:Name="StaffView" Icon="Contact"/>
+                
                 
                     <!--<NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Edit" />

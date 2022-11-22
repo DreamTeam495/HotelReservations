@@ -31,8 +31,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Providers\RestReservationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BookingView.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ReservationView.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\StaffView.xaml.cs">
+      <DependentUpon>StaffView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
@@ -45,6 +51,10 @@
       <XamlRuntime>WinUI</XamlRuntime>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\SettingsView.xaml" />
+    <Page Include="$(MSBuildThisFileDirectory)Views\StaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Assets\SharedAssets.md" />
@@ -62,7 +72,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </_Globbled_Page>
-    <Page Include="@(_Globbled_Page)" />
+    <Page Include="@(_Globbled_Page)">
+      <SubType>Designer</SubType>
+    </Page>
     <_Globbed_Compile Include="$(MSBuildThisFileDirectory)**/*.xaml.cs" Exclude="@(Compile)">
       <DependentUpon>%(Filename)</DependentUpon>
     </_Globbed_Compile>

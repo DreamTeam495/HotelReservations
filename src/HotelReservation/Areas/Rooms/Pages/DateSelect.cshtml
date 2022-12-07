@@ -1,0 +1,13 @@
+﻿@page
+@model HotelReservation.Areas.Rooms.Pages.DateSelect
+
+@{
+    Layout = null;
+}
+
+<form method="post">
+    <input asp-for="StartDate" name="StartDate"/>
+    <input asp-for="EndDate" name="EndDate"/>
+    
+    <button type="submit">Search</button>
+</form>

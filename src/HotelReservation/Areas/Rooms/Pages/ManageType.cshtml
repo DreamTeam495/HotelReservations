@@ -1,0 +1,29 @@
+﻿@page
+@model HotelReservation.Areas.Rooms.Pages.ManageType
+
+@{
+    Layout = null;
+}
+
+<h1>Room Type Manager</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Picture</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.Id</td>
+                <td>@room.Description</td>
+                <td>@room.Price</td>
+                <td><img id="typePicture" style="width:350px;height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(room.Picture))"></td>
+            </tr>
+        }
+    </tbody>
+</table>

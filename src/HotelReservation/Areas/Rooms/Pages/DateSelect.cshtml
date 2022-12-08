@@ -2,12 +2,61 @@
 @model HotelReservation.Areas.Rooms.Pages.DateSelect
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
-<form method="post">
-    <input asp-for="StartDate" name="StartDate"/>
-    <input asp-for="EndDate" name="EndDate"/>
-    
-    <button type="submit">Search</button>
-</form>
+
+
+@*BOOK A ROOM FORM*@
+<div class="card border-info mb-3 input-form">
+    <div class="container-fluid">
+        <form method="post">
+            <fieldset>
+                <legend>Book a Room</legend>
+                <div class="row row-cols-lg-auto g-3 align-items-center">
+                    <div class="col-6 col-md-2 col-lg-3">
+                        <label for="StartDate">Check-In</label>
+                        <input asp-for="StartDate" name="StartDate" class="form-select" />
+                    </div>
+
+                    <div class="col-6 col-md-2 col-lg-3">
+                        <label for="EndDate">Check-Out</label>
+                        <input asp-for="EndDate" name="EndDate" class="form-select" />
+                    </div>
+
+                    <div class="col-6 col-md-2 col-lg-3">
+                        <label># of Adults</label>
+                        <select class="form-select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+
+                    <div class="col-6 col-md-2 col-lg-3">
+                        <label># of Children</label>
+                        <select class="form-select">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 s12 m4 l2">
+                        <button type="submit" class="btn btn-secondary">Search</button>
+                    </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+@*END BOOK A ROOM FORM*@
+
+
+
+
+

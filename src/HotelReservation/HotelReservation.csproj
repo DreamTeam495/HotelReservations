@@ -8,6 +8,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Migrations\NewFolder\**" />
+      <Compile Remove="wwwroot\NewFolder\**" />
+      <Content Remove="Migrations\NewFolder\**" />
+      <Content Remove="wwwroot\NewFolder\**" />
+      <EmbeddedResource Remove="Migrations\NewFolder\**" />
+      <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+      <None Remove="Migrations\NewFolder\**" />
+      <None Remove="wwwroot\NewFolder\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MailKit" Version="3.4.3" />
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.11" />
@@ -19,7 +31,6 @@
 
     <ItemGroup>
       <Folder Include="Data\Migrations" />
-      <Folder Include="Migrations" />
     </ItemGroup>
 
 </Project>

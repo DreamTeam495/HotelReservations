@@ -17,6 +17,15 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = ".AdventureWorks.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(60);
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +40,30 @@ else
     app.UseHsts();
 }
 
+var scope = app.Services.CreateScope();
+
+var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+await roleManager.CreateAsync(new IdentityRole("admin"));
+
+var admin = new ApplicationUser
+{
+    Email = "admin@dreamhotel.com",
+    EmailConfirmed = true,
+    FirstName = "admin",
+    LastName = "admin",
+    UserName = "admin@dreamhotel.com"
+};
+
+var user = await userManager.FindByEmailAsync("admin@dreamhotel.com");
+
+if (user == null)
+{
+    await userManager.CreateAsync(admin, "Password1!");
+    await userManager.AddToRoleAsync(admin, "admin");
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -38,6 +71,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapRazorPages();
 

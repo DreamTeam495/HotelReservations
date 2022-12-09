@@ -6,28 +6,40 @@
 }
 
 <h3>@ViewData["Title"]</h3>
+
+@{
+    
+    //@DateTime.ParseExact(HttpContext.Session.GetString("_StartDate"), "yyyy-MM-dd'T'HH:mm:ss", null).ToShortDateString();
+    //@DateTime.ParseExact(HttpContext.Session.GetString("_EndDate"), "yyyy-MM-dd'T'HH:mm:ss", null).ToShortDateString();
+}
+
+<div>
+    <b>Start Date:</b> @Model.StartDate.ToShortDateString()
+    <b>End Date:</b> @Model.EndDate.ToShortDateString()
+</div>
+
 <div class="row">
     @foreach (var room in Model.Rooms)
-        {
-            <div class="col-md-4">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div>
-                        <img id="typePicture" style="width:350px;height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(@room.Picture))">
-                    </div>
-                    <div>
-                        <label>@room.Description</label>
-                    </div>
-                <div>
-                    <label>@room.Price</label>
-                </div>
-                <form method="post">
-                    <button 
-                        asp-page-handler="OnReserve" 
-                        type="submit" 
-                        class="btn btn-lg btn-primary" 
-                        style="width:350px;height:50px">Reserve</button>
-                <input hidden asp-for="Input.Id" value=@room.Id>
-                </form>
+    {
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <img id="typePicture" style="width:350px;height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(@room.Picture))">
             </div>
-        }
+            <div>
+                <label>@room.Description</label>
+            </div>
+            <div>
+                <label>@room.Price</label>
+            </div>
+            <form method="post">
+                <button
+                    asp-page-handler="OnReserve"
+                    type="submit"
+                    class="btn btn-lg btn-primary"
+                    style="width:350px;height:50px">Reserve</button>
+                <input hidden asp-for="Input.Id" value=@room.Id>
+            </form>
+        </div>
+    }
 </div>

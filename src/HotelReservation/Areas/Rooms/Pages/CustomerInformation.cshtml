@@ -2,10 +2,18 @@
 @model HotelReservation.Areas.Rooms.Pages.CustomerInformation
 
 @{
-    ViewData["Title"] = "Customer Type";
+    ViewData["Title"] = "Payment and Guest Details";
 }
 
 <h3>@ViewData["Title"]</h3>
+
+<div>
+    <div class="col-md-12">
+        <b>Total Price: </b> @Model.Price
+    </div>
+</div>
+
+
 <form method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-6">

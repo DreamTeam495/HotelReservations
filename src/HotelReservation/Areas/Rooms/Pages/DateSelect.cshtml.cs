@@ -11,11 +11,11 @@ public class DateSelect : PageModel
 {
     [BindProperty]
     [DataType(DataType.Date)]
-    public DateTime StartDate { get; set; }
+    public DateTime StartDate { get; set; } = DateTime.Today;
     
     [BindProperty]
     [DataType(DataType.Date)]
-    public DateTime EndDate { get; set; }
+    public DateTime EndDate { get; set; } = DateTime.Today;
 
     private readonly ApplicationDbContext _dbContext;
 
@@ -34,6 +34,6 @@ public class DateSelect : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        return RedirectToPage("Reservation", new {StartDate = StartDate, EndDate = EndDate});
+        return RedirectToPage("Reservation", new { StartDate, EndDate});
     }
 }

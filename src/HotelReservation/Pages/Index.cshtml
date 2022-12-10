@@ -11,35 +11,56 @@
 
 @*BANNER*@
 <section class="banner-main">
-   
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-     
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="~/images/banner1.jpg" class="d-block w-100" alt="First slide">
-                <div class="carousel-caption position-absolute top-50 start-50 translate-middle mt-4 d-none d-md-block shadow">
-                    <p class="mt-5 fs-3 text-uppercase">Meh Meh Meh</p>
-                    <button class="btn btn-secondary px-4 py-2 fs-5 mt-5" asp-area="Rooms" asp-page="/DateSelect">Book Now</button>
+                <div class="carousel-caption position-absolute top-50 start-50 translate-middle mt-4 d-none d-md-block">
+                    <p class="myTextShadow mt-5 fs-2 text-uppercase fw-bold text-light">The Best Place To Stay</p>
+                    <a class="Button btn btn-secondary px-4 py-2 fs-5 mt-5" href="Rooms/DateSelect">Book Now</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="~/images/banner2.jpg" class="d-block w-100" alt="Second slide">
+                <div class="carousel-caption position-absolute top-75 start-50 translate-middle mt-4 d-none d-md-block">
+                    <p class="myTextShadow mt-5 fs-2 text-uppercase fw-bold text-light">Enjoy a luxary experience</p>
+                    <a class="Button btn btn-secondary px-4 py-2 fs-5 mt-5" href="Rooms/DateSelect">Book Now</a>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="~/images/banner3.jpg" class="d-block w-100" alt="Third slide">
+                <div class="carousel-caption position-absolute top-50 start-50 translate-middle mt-4 d-none d-md-block">
+                    <p class="myTextShadow mt-5 fs-2 text-uppercase fw-bold text-light">Vacation Heaven</p>
+                    <a class="Button btn btn-secondary px-4 py-2 fs-5 mt-5" href="Rooms/DateSelect">Book Now</a>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="~/images/banner4.jpg" class="d-block w-100" alt="Fourth slide">
+                <div class="carousel-caption position-absolute top-50 start-50 translate-middle mt-4 d-none d-md-block">
+                    <p class="myTextShadow mt-5 fs-2 text-uppercase fw-bold text-light">The Perfect Balance of Hospitality & comfort</p>
+                    <a class="Button btn btn-secondary px-4 py-2 fs-5 mt-5" href="Rooms/DateSelect">Book Now</a>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="~/images/banner5.jpg" class="d-block w-100" alt="Fifth slide">
+                <div class="carousel-caption position-absolute top-50 start-50 translate-middle mt-4 d-none d-md-block">
+                    <p class="myTextShadow mt-5 fs-2 text-uppercase fw-bold text-light">Experience the greatest for your holidays</p>
+                    <a class="Button btn btn-secondary px-4 py-2 fs-5 mt-5" href="Rooms/DateSelect">Book Now</a>
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>

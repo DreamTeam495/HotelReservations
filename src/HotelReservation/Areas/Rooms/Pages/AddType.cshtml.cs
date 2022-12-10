@@ -1,10 +1,12 @@
 ﻿using HotelReservation.Areas.Rooms.Models;
 using HotelReservation.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HotelReservation.Areas.Rooms.Pages;
 
+[Authorize(Roles = "admin")]
 public class AddTypeModel : PageModel
 {
     private readonly ApplicationDbContext _dbContext;

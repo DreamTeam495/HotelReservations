@@ -44,8 +44,7 @@ public class Reservation : PageModel
         Rooms = await _dbContext.Rooms.ToListAsync();
         return Page();
     }
-
-    //TODO: Date passes through as a TempData, should I set this in DateSelect rather than reservation?
+    
     public async Task<IActionResult> OnPostOnReserveAsync()
     {
         var room = await _dbContext.Rooms.SingleAsync(x => x.Id == Input.Id);

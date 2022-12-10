@@ -9,13 +9,9 @@
 
     <ItemGroup>
       <Compile Remove="Migrations\NewFolder\**" />
-      <Compile Remove="wwwroot\NewFolder\**" />
       <Content Remove="Migrations\NewFolder\**" />
-      <Content Remove="wwwroot\NewFolder\**" />
       <EmbeddedResource Remove="Migrations\NewFolder\**" />
-      <EmbeddedResource Remove="wwwroot\NewFolder\**" />
       <None Remove="Migrations\NewFolder\**" />
-      <None Remove="wwwroot\NewFolder\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -32,6 +28,7 @@
     <ItemGroup>
       <Folder Include="Data\Migrations" />
       <Folder Include="Migrations" />
+      <Folder Include="wwwroot\images\" />
     </ItemGroup>
 
 </Project>

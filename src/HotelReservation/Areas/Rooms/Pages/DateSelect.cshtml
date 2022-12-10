@@ -8,51 +8,59 @@
 
 
 @*BOOK A ROOM FORM*@
-<div class="card border-info mb-3 input-form">
-    <div class="container-fluid">
-        <form method="post">
-            <fieldset>
-                <legend>Book a Room</legend>
-                <div class="row row-cols-lg-auto g-3 align-items-center">
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label for="StartDate">Check-In</label>
-                        <input asp-for="StartDate" type="date" name="StartDate" class="form-select" />
-                    </div>
+<div class="card border-info mb-3 input-form pt-4 pb-3">
+    <div class="container">
 
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label for="EndDate">Check-Out</label>
-                        <input asp-for="EndDate" type="date" name="EndDate" class="form-select" />
-                    </div>
 
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label># of Adults</label>
-                        <select class="form-select">
+        <div class="book-room">
+            <form method="post">
+                <fieldset>
+                    <legend>Book A Room</legend>
+                    <div class="book-now ">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <label for="StartDate">CHECK-IN</label>
+                                <input asp-for="StartDate" type="date" name="StartDate" class="form-select" />
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="EndDate">CHECK-OUT</label>
+                                <input asp-for="EndDate" type="date" name="EndDate" class="form-select" />
+                            </div>
+
+                            @*<div class="col-6 col-md-2 col-lg-3">
+                            <label># of Adults</label>
+                            <select class="form-select">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                        </select>
-                    </div>
+                            </select>
+                            </div>
 
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label># of Children</label>
-                        <select class="form-select">
+                            <div class="col-6 col-md-2 col-lg-3">
+                            <label># of Children</label>
+                            <select class="form-select">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                        </select>
-                    </div>
+                            </select>
+                            </div>*@
 
-                    <div class="col-12 s12 m4 l2">
-                        <button type="submit" class="btn btn-secondary">Search</button>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-secondary book-btn">SEARCH</button>
+                            </div>
+                        </div>
                     </div>
+                </fieldset>
+            </form>
+        </div>
 
-                </div>
-            </fieldset>
-        </form>
     </div>
+</div>
 </div>
 @*END BOOK A ROOM FORM*@
 

@@ -18,8 +18,87 @@ body {
 }
 
 .input-form {
-    
     padding: 20px;
     border-radius: 8px;
 }
 
+.banner-main {
+    position: relative;
+}
+
+.myTextShadow {
+    text-shadow: 3px 4px 7px #ea39b8;
+    padding: 0.5rem;
+    background-color: rgba(23,2, 153, .25);
+    border-radius: 8px;
+}
+
+/** GALLERY SECTION **/
+
+.gallery {
+    padding-top: 60px;
+}
+
+.gallery .titlepage {
+    text-align: center;
+}
+
+.gallery .gallery_img {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.gallery .gallery_img figure {
+    margin: 0;
+}
+
+.gallery .gallery_img figure img {
+    width: 100%;
+    transition: all .5s;
+}
+
+.gallery .gallery_img figure img:hover {
+    transform: scale(1.2);
+}
+
+/** END GALLERY SECTION **/
+
+
+/** BOOK A ROOM FORM*/
+.book-room legend {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.book-now span {
+    display: block;
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+.book-now .online-book {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    padding: 0 10px;
+    padding-right: 61px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.book-btn {
+    max-width: 189px;
+    width: 100%;
+    margin: 15px auto;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: ease-in 0.5s;
+    display: block;
+}
+
+/** END BOOK A ROOM FORM*/

@@ -18,13 +18,15 @@ public class Report : PageModel
         _dbContext = dbContext; 
     } 
      
-    public IEnumerable<Room> Rooms { get; set; } 
+    public List<Rooms.Models.Reservation> Reservations { get; set; }
  
-    public async Task<IActionResult> OnGetAsync() 
+    public async Task<IActionResult> OnGetAsync()
     {
-        Rooms = await _dbContext.Rooms
-            .ToListAsync(); 
-         
+        Reservations = await _dbContext.Reservations
+            .Include(x => x.Customer)
+            .Include(x => x.Room)
+            .ToListAsync();
+
         return Page(); 
     } 
 }

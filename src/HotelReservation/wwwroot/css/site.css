@@ -18,8 +18,40 @@ body {
 }
 
 .input-form {
-    
     padding: 20px;
     border-radius: 8px;
 }
 
+.banner-main {
+    position: relative;
+}
+
+/** GALLERY SECTION **/
+
+.gallery {
+    padding-top: 60px;
+}
+
+.gallery .titlepage {
+    text-align: center;
+}
+
+.gallery .gallery_img {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.gallery .gallery_img figure {
+    margin: 0;
+}
+
+.gallery .gallery_img figure img {
+    width: 100%;
+    transition: all .5s;
+}
+
+.gallery .gallery_img figure img:hover {
+    transform: scale(1.2);
+}
+
+/** END GALLERY SECTION **/

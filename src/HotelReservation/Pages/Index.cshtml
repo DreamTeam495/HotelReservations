@@ -5,6 +5,102 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">DREAM HOTEL</h1>
+    <h1 class="display-4 fw-bolder text-capitalize">DREAM HOTEL</h1>
     <p>HOTEL & RESORT</p>
 </div>
+
+@*BANNER*@
+<section class="banner-main">
+   
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+     
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/images/banner1.jpg" class="d-block w-100" alt="First slide">
+                <div class="carousel-caption position-absolute top-50 start-50 translate-middle mt-4 d-none d-md-block shadow">
+                    <p class="mt-5 fs-3 text-uppercase">Meh Meh Meh</p>
+                    <button class="btn btn-secondary px-4 py-2 fs-5 mt-5" asp-area="Rooms" asp-page="/DateSelect">Book Now</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/banner2.jpg" class="d-block w-100" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/banner3.jpg" class="d-block w-100" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/banner4.jpg" class="d-block w-100" alt="Fourth slide">
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/banner5.jpg" class="d-block w-100" alt="Fifth slide">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</section>
+
+@*END BANNER*@
+
+@*GALLERY SECTION*@
+<div class="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>GALLERY</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery1.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery2.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery3.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery4.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery5.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery6.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery7.jpg" alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="gallery_img">
+                    <figure><img src="~/images/gallery8.jpg" alt="#" /></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*END GALLERY SECTION*@

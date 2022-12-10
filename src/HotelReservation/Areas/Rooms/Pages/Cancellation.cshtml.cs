@@ -45,17 +45,21 @@ public class Cancellation : PageModel
         
         await _dbContext.SaveChangesAsync();
         
-        //TODO: Formatting funky
         var message = new MimeMessage ();
         message.From.Add (new MailboxAddress ("DreamHotel495", "reservation@dreamhotel.com"));
         message.To.Add (new MailboxAddress ($"{Reserve.Customer.FirstName} {Reserve.Customer.LastName}", $"{Reserve.Customer.Email}"));
-        message.Subject = "We're sorry to see you go!";
+        message.Subject = $"We're sorry to see you go, {Reserve.Customer.FirstName}!";
         message.Body = new TextPart ("plain") {
             Text = @$"{Reserve.Customer.FirstName},
-Your reservation id is: {Reserve.Id}
-Starting from {Reserve.StartDate.ToShortDateString()} to {Reserve.EndDate.ToShortDateString()} of the {Reserve.Room.Description} type.
-Price: {Reserve.Price.ToString("C")}
-Has been cancelled
+You've successfully cancelled your reservation at Dream Hotel starting from {Reserve.StartDate.ToShortDateString()} to {Reserve.EndDate.ToShortDateString()}.
+
+In the next 3-5 business you should see {Reserve.Price.ToString("C")} added back to your account.
+
+We apologize for any inconveniences this refund may cause you.
+
+Feel free to contact our team at reservation@dreamhotel.com should you have any questions.
+
+- DreamHotel495
 "
         };
 

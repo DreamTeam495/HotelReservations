@@ -33,17 +33,30 @@ public class Confirmation : PageModel
 
         NumberOfDays = (Reserve.EndDate - Reserve.StartDate).Days;
         
-        //TODO: Formatting funky
         var message = new MimeMessage ();
         message.From.Add (new MailboxAddress ("DreamHotel495", "reservation@dreamhotel.com"));
         message.To.Add (new MailboxAddress ($"{Reserve.Customer.FirstName} {Reserve.Customer.LastName}", $"{Reserve.Customer.Email}"));
-        message.Subject = "Thank you for reserving!";
+        message.Subject = $"Your reservation at Dream Hotel, {Reserve.Customer.FirstName}!";
         message.Body = new TextPart ("plain") {
             Text = @$"{Reserve.Customer.FirstName},
+Thank you for reservation at Dream Hotel, we hope you'll enjoy your stay.
+
+Reservation information: 
 Your reservation id is: {Reserve.Id}
-Starting from {Reserve.StartDate.ToShortDateString()} to {Reserve.EndDate.ToShortDateString()} of the {Reserve.Room.Description} type.
-Price: {Reserve.Price.ToString("C")}
-Has been made
+The room you've reserved is: {Reserve.Room.Description}
+Check-in: {Reserve.StartDate} at 4:00 PM.
+Check-out: {Reserve.EndDate} at 10:00 AM.
+
+You've paid: {Reserve.Price.ToString("C")}
+
+If you need to cancel your reservation you will need to enter your reservation id and email.
+id: {Reserve.Id}
+email: {Reserve.Customer.Email}
+
+If you have any questions or issues please do not hesitate to reach out to reservation@dreamhotel.com
+
+Thanks again for your patronage!
+- DreamHotel495
 "
         };
 

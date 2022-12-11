@@ -19,7 +19,7 @@ public class Confirmation : PageModel
     }
 
     [BindProperty]
-    public Rooms.Models.Reservation? Reserve { get; set; }
+    public Reservation? Reserve { get; set; }
 
     [BindProperty]
     public int NumberOfDays { get; set; }

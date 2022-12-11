@@ -18,7 +18,7 @@ public class Report : PageModel
         _dbContext = dbContext; 
     } 
      
-    public List<Rooms.Models.Reservation> Reservations { get; set; }
+    public List<Reservation> Reservations { get; set; }
  
     public async Task<IActionResult> OnGetAsync()
     {

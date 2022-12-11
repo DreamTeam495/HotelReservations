@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelReservation.Areas.Rooms.Pages;
 
-public class Reservation : PageModel
+public class RoomSelect : PageModel
 {
     private readonly ApplicationDbContext _dbContext;
 
-    public Reservation(ApplicationDbContext dbContext)
+    public RoomSelect(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -27,21 +27,14 @@ public class Reservation : PageModel
     [BindProperty]
     public DateTime EndDate { get; set; }
 
-    public const string SDate = "_StartDate";
-    public const string EDate = "_EndDate";
+
 
     //TODO: Only return available rooms for given date range
-    public async Task<IActionResult> OnGetAsync([FromQuery]DateTime startDate, [FromQuery]DateTime endDate)
+    public async Task<IActionResult> OnGetAsync()
     {
-        if (HttpContext.Session.Get<DateTime>(SDate) == default && HttpContext.Session.Get<DateTime>(EDate) == default)
-        {
-            HttpContext.Session.Set(SDate, startDate);
-            HttpContext.Session.Set(EDate, endDate);
-            StartDate = startDate;
-            EndDate = endDate;
-        }
-
         Rooms = await _dbContext.Rooms.ToListAsync();
+        StartDate = HttpContext.Session.Get<DateTime>("_StartDate");
+        EndDate = HttpContext.Session.Get<DateTime>("_EndDate");
         return Page();
     }
     

@@ -167,6 +167,10 @@ namespace HotelReservation.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<byte[]>("Picture")
                         .IsRequired()
                         .HasColumnType("BLOB");

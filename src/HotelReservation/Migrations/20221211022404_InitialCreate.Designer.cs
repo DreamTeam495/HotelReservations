@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelReservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221206044145_InitialCreate")]
+    [Migration("20221211022404_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,6 +168,10 @@ namespace HotelReservation.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<byte[]>("Picture")
                         .IsRequired()

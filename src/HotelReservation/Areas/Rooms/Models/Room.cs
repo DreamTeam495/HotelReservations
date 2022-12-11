@@ -6,8 +6,8 @@ public class Room
 {
     public int Id { get; set; }
     
-    [Display(Name = "Description")]
-    public string Description { get; set; }
+    [Display(Name = "Name")]
+    public string Name { get; set; }
     
     [Display(Name = "Price")]
     public decimal Price { get; set; }
@@ -15,6 +15,9 @@ public class Room
     [Display(Name = "Picture")]
     public byte[] Picture { get; set; }
     public bool IsActive { get; set; } = true;
+    
+    [Display(Name = "Description")]
+    public string Description { get; set; }
     
     public ICollection<Reservation> Reservations { get; set; }
 }

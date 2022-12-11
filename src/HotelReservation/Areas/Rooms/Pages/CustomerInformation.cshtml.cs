@@ -24,7 +24,7 @@ public class CustomerInformation : PageModel
     public Room? Output { get; set; }
     
     [BindProperty]
-    public Rooms.Models.Reservation? Reserve { get; set; }
+    public Reservation? Reserve { get; set; }
     
     [BindProperty]
     public decimal Price { get; set; }
@@ -62,7 +62,7 @@ public class CustomerInformation : PageModel
         EndDate = HttpContext.Session.Get<DateTime>("_EndDate");
         Price = HttpContext.Session.Get<decimal>("_TotalCost");
 
-        var reservation = new Rooms.Models.Reservation
+        var reservation = new Reservation
         {
             StartDate = StartDate,
             EndDate = EndDate,
@@ -82,6 +82,6 @@ public class CustomerInformation : PageModel
     
     public async Task<IActionResult> OnPostOnCancelAsync()
     {
-        return RedirectToPage("Reservation");
+        return RedirectToPage("RoomSelect");
     }
 }

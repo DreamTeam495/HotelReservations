@@ -30,8 +30,9 @@ public class FullRun : PageTest
 
         // Click submit after date select 
         await Page.Locator("button").Nth(1).ClickAsync();
-         
-        await Expect(Page).ToHaveURLAsync(new Regex(".*Reservation")); 
+
+        await Expect(Page).ToHaveURLAsync(new Regex(".*RoomSelect"));
+     
         
         // Testing the 2 room type
         // Change Nth() to 1 for king, 2 for king w/ balcony, 3 for suite

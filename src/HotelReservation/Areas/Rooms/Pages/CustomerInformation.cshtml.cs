@@ -98,14 +98,16 @@ public class CustomerInformation : PageModel
     }
     
     /// <summary>
-    /// Deletes stored roomId and Price in session ensure correct data is used.
-    /// If user selects cancel, user is returned to previous page to select another room.
+    /// Deletes stored StartDate, EndDate, roomId, and Price in session ensure correct data is used.
+    /// If user selects cancel, user is returned index to begin process over again
     /// </summary>
     public async Task<IActionResult> OnPostOnCancelAsync()
     {
+        HttpContext.Session.Remove("_StartDate");
+        HttpContext.Session.Remove("_EndDate");
         HttpContext.Session.Remove("_RoomId");
         HttpContext.Session.Remove("_TotalCost");
         
-        return RedirectToPage("RoomSelect");
+        return RedirectToPage("Index");
     }
 }

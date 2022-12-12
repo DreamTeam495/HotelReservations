@@ -32,6 +32,12 @@ public class Cancellation : PageModel
         return Page();
     }
 
+    /// <summary>
+    /// Obtains reservation based on user input of email and reservation id.
+    /// Deletes chosen reservation from database.
+    /// Uses mailkit to email customer of a cancellation email.
+    /// </summary>
+    /// <returns>Returns user to mainpage</returns>
     public async Task<IActionResult> OnPostOnSubmitAsync()
     {
         Reserve = await _dbContext.Reservations
@@ -73,6 +79,9 @@ Feel free to contact our team at reservation@dreamhotel.com should you have any 
         return RedirectToPage("Index");
     }
     
+    /// <summary>
+    /// If user decides to cancel cancellation they are returned to index
+    /// </summary>
     public async Task<IActionResult> OnPostOnCancelAsync()
     {
         return RedirectToPage("Index");

@@ -17,6 +17,10 @@ public class ManageType : PageModel
     
     public IEnumerable<Room> Rooms { get; set; }
     
+    /// <summary>
+    /// Retrieves all rooms currently in the database to be displayed to admin
+    /// </summary>
+    /// <returns></returns>
     public async Task<IActionResult> OnGetAsync()
     {
        Rooms = await _dbContext.Rooms.ToListAsync();

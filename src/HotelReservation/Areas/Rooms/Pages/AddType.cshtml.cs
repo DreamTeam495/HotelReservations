@@ -24,6 +24,11 @@ public class AddTypeModel : PageModel
         return Page();
     }
 
+    /// <summary>
+    /// Obtains picture from user converts picture into byte array to be stored in database.
+    /// Stores the picture and information typed in by admin to create a new room in the database.
+    /// </summary>
+    /// <returns></returns>
     public async Task<IActionResult> OnPostAsync()
     {
         var file = Request.Form.Files[0];

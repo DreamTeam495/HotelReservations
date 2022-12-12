@@ -24,6 +24,12 @@ public class Confirmation : PageModel
     [BindProperty]
     public int NumberOfDays { get; set; }
 
+    /// <summary>
+    /// Retrieves reservation based on reservation id stored in session.
+    /// Calculates the number of days for output on conformation email.
+    /// Uses mailkit to send an email to user.
+    /// After confirmation is set, session is cleared.
+    /// </summary>
     public async Task<IActionResult> OnGetAsync()
     {
         Reserve = await _dbContext.Reservations
@@ -44,14 +50,14 @@ Thank you for reservation at Dream Hotel, we hope you'll enjoy your stay.
 Reservation information: 
 Your reservation id is: {Reserve.Id}
 The room you've reserved is: {Reserve.Room.Description}
-Check-in: {Reserve.StartDate} at 4:00 PM.
-Check-out: {Reserve.EndDate} at 10:00 AM.
+Check-in: {Reserve.StartDate.ToShortDateString()} at 4:00 PM.
+Check-out: {Reserve.EndDate.ToShortDateString()} at 10:00 AM.
 
 You've paid: {Reserve.Price.ToString("C")}
 
 If you need to cancel your reservation you will need to enter your reservation id and email.
-id: {Reserve.Id}
-email: {Reserve.Customer.Email}
+Id: {Reserve.Id}
+Email: {Reserve.Customer.Email}
 
 If you have any questions or issues please do not hesitate to reach out to reservation@dreamhotel.com
 

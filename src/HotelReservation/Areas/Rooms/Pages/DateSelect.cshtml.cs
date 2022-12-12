@@ -10,15 +10,6 @@ namespace HotelReservation.Areas.Rooms.Pages;
 
 public class DateSelect : PageModel
 {
-    private readonly ApplicationDbContext _dbContext;
-
-    public DateSelect(ApplicationDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-    
-    public IEnumerable<Room> Rooms { get; set; }
-    
     [BindProperty]
     [DataType(DataType.Date)]
     public DateTime StartDate { get; set; } = DateTime.Today;
@@ -29,13 +20,16 @@ public class DateSelect : PageModel
 
     public const string SDate = "_StartDate";
     public const string EDate = "_EndDate";
-
+    
     public async Task<IActionResult> OnGetAsync()
     {
-        Rooms = await _dbContext.Rooms.ToListAsync();
         return Page();
     }
 
+    /// <summary>
+    /// On dates searched, provided check-in and check-out dates are saved into a session.
+    /// </summary>
+    /// <returns>Swaps view to next page.</returns>
     public async Task<IActionResult> OnPostAsync()
     {
         if (HttpContext.Session.Get<DateTime>(SDate) == default && HttpContext.Session.Get<DateTime>(EDate) == default)

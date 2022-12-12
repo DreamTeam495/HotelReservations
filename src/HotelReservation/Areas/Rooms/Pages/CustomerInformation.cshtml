@@ -5,52 +5,59 @@
     ViewData["Title"] = "Payment and Guest Details";
 }
 
-<h3>@ViewData["Title"]</h3>
 
-<div>
-    <div class="col-md-12">
-        <b>Start Date:</b> @Model.StartDate.ToShortDateString()
-        <b>End Date:</b> @Model.EndDate.ToShortDateString()
-        <b>Total Price: </b> @Model.Price.ToString("C")
-    </div>
-</div>
+<div class="card border-secondary mb-3 input-form pt-4 pb-3">
+    <div class="container mx-auto">
 
+        <h3>@ViewData["Title"]</h3>
 
-<form method="post" enctype="multipart/form-data">
-    <div class="row">
-    <div class="col-md-6">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-floating">
-            <input asp-for="Input.FirstName" class="form-control" />
-            <label asp-for="Input.FirstName" class="form-label"></label>
-        </div>
-        <div class="form-floating">
-            <input asp-for="Input.LastName" class="form-control" />
-            <label asp-for="Input.LastName" class="form-label"></label>
-        </div>
-        <div class="form-floating">
-            <input asp-for="Input.Email" class="form-control" />
-            <label asp-for="Input.Email" class="form-label"></label>
-        </div>
-        <div class="form-floating">
-            <input asp-for="Input.CreditCardNumber" class="form-control" />
-            <label asp-for="Input.CreditCardNumber" class="form-label"></label>
-        </div>
-        <div class="form-floating">
-            <input asp-for="Input.CreditCardExpiration" class="form-control" />
-            <label asp-for="Input.CreditCardExpiration" class="form-label"></label>
-        </div>
-        <div class="form-floating">
-            <input asp-for="Input.CreditCardCvv" class="form-control" />
-            <label asp-for="Input.CreditCardCvv" class="form-label"></label>
-        </div>
-    </div>
-    
-        <div class="row">
-            <div class="col-md-6">
-                <button asp-page-handler="OnSubmit" type="submit" class="btn btn-primary">Submit</button>
-                <button asp-page-handler="OnCancel" type="submit" class="btn btn-primary">Cancel</button>
+        <div>
+            <div class="col-md-12">
+                <b>Start Date:</b> @Model.StartDate.ToShortDateString()
+                <b>End Date:</b> @Model.EndDate.ToShortDateString()
+                <b>Total Price: </b> @Model.Price.ToString("C")
             </div>
         </div>
+
+        <div class="container">
+            <form method="post" enctype="multipart/form-data" class="mx-auto card-body">
+                <div class="form-group row pb-0">
+                    <div class="col-md-6">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group pb-0">
+                            <input asp-for="Input.FirstName" class="form-control" />
+                            <label asp-for="Input.FirstName" class="form-label"></label>
+                        </div>
+                        <div class="form-group pb-0">
+                            <input asp-for="Input.LastName" class="form-control" />
+                            <label asp-for="Input.LastName" class="form-label"></label>
+                        </div>
+                        <div class="form-group pb-0">
+                            <input asp-for="Input.Email" class="form-control" />
+                            <label asp-for="Input.Email" class="form-label"></label>
+                        </div>
+                        <div class="form-group pb-0">
+                            <input asp-for="Input.CreditCardNumber" class="form-control" />
+                            <label asp-for="Input.CreditCardNumber" class="form-label"></label>
+                        </div>
+                        <div class="form-group pb-0">
+                            <input asp-for="Input.CreditCardExpiration" class="form-control" />
+                            <label asp-for="Input.CreditCardExpiration" class="form-label"></label>
+                        </div>
+                        <div class="form-group pb-0">
+                            <input asp-for="Input.CreditCardCvv" class="form-control" />
+                            <label asp-for="Input.CreditCardCvv" class="form-label"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <button asp-page-handler="OnSubmit" type="submit" class="btn btn-primary">Submit</button>
+                            <button asp-page-handler="OnCancel" type="submit" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+</div>

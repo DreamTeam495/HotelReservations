@@ -20,6 +20,10 @@ public class Report : PageModel
      
     public List<Reservation> Reservations { get; set; }
  
+    /// <summary>
+    /// Displays all reservations stored in database to be easily viewed by admin
+    /// </summary>
+    /// <returns></returns>
     public async Task<IActionResult> OnGetAsync()
     {
         Reservations = await _dbContext.Reservations

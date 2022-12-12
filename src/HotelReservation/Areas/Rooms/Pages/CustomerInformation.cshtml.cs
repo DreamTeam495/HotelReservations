@@ -38,6 +38,15 @@ public class CustomerInformation : PageModel
     public const string RoomId = "_RoomID";
     public const string ReservationId = "_ReservationID";
 
+    /// <summary>
+    /// On page load, room type is stored from query parameter.
+    /// StartDate and EndDate is also retrieved from session.
+    /// Price is calculated in code behind to ensure stateless pages.
+    /// As user is inputting customer information it is assumed that this room is the final choice and Id is stored in session.
+    /// Price is also stored in session to be passed down to database input on post.
+    /// </summary>
+    /// <param name="id">Room Id from previous page</param>
+    /// <returns></returns>
     public async Task<IActionResult> OnGetAsync([FromQuery] int id)
     {
         Output = await _dbContext.Rooms.SingleAsync(x => x.Id == id);
@@ -51,6 +60,14 @@ public class CustomerInformation : PageModel
         return Page();
     }
     
+    /// <summary>
+    /// All customer information from user input is stored in customers database.
+    /// Room is found based on session Id.
+    /// StartDate and EndDate are retrieved from session.
+    /// Reservation is created based on user input and session variables and stored in reservation database.
+    /// Reservation.Id is stored in session to passed along to confirmation email
+    /// </summary>
+    /// <returns></returns>
     public async Task<IActionResult> OnPostOnSubmitAsync()
     {
         _dbContext.Customers.Add(Input);
@@ -80,8 +97,15 @@ public class CustomerInformation : PageModel
         return RedirectToPage("Confirmation");
     }
     
+    /// <summary>
+    /// Deletes stored roomId and Price in session ensure correct data is used.
+    /// If user selects cancel, user is returned to previous page to select another room.
+    /// </summary>
     public async Task<IActionResult> OnPostOnCancelAsync()
     {
+        HttpContext.Session.Remove("_RoomId");
+        HttpContext.Session.Remove("_TotalCost");
+        
         return RedirectToPage("RoomSelect");
     }
 }

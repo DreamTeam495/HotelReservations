@@ -29,6 +29,9 @@ public class RoomSelect : PageModel
 
 
 
+    /// <summary>
+    /// Displays rooms stored in Rooms database, while retrieving dates from session to be used.
+    /// </summary>
     //TODO: Only return available rooms for given date range
     public async Task<IActionResult> OnGetAsync()
     {
@@ -38,12 +41,12 @@ public class RoomSelect : PageModel
         return Page();
     }
     
+    /// <summary>
+    /// On reserve button select, query parameter is sent rather than session in case user decides to choose a different room.
+    /// </summary>
+    /// <returns>User goes to CustomerInformation page, and has a Id value passed as a parameter.</returns>
     public async Task<IActionResult> OnPostOnReserveAsync()
     {
-        var room = await _dbContext.Rooms.SingleAsync(x => x.Id == Input.Id);
-
-        await _dbContext.SaveChangesAsync();
-
         return RedirectToPage("CustomerInformation", new { Input.Id });
     }
 }

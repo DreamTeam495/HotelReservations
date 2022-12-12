@@ -24,6 +24,12 @@ public class Confirmation : PageModel
     [BindProperty]
     public int NumberOfDays { get; set; }
 
+    /// <summary>
+    /// Retrieves reservation based on reservation id stored in session.
+    /// Calculates the number of days for output on conformation email.
+    /// Uses mailkit to send an email to user.
+    /// After confirmation is set, session is cleared.
+    /// </summary>
     public async Task<IActionResult> OnGetAsync()
     {
         Reserve = await _dbContext.Reservations
